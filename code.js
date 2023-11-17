@@ -17,8 +17,9 @@ window.onload = async () => {
 
       for (const elixir of wizard.elixirs){
         const newElement2 = document.createElement('div');
-        newElement2.innerHTML =`<p>${elixir.name}</p>`
-        `<button onclick="addToCart({ id: 1, name: 'Samarreta'})" id="addCart">${elixir.name}</button>`
+        newElement2.innerHTML =`
+        <p>${elixir.name}</p>
+        <button onclick="showIngredients({ id: ${elixir.id} )" id="showIngredients">Ingredientes</button>`
         mainHtmlElement.appendChild(newElement2);
       }
     }
@@ -30,3 +31,5 @@ async function getAllWizards(){
   const data = await response.json();
   return data;
 }
+
+async function
