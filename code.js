@@ -22,10 +22,25 @@ window.onload = async () => {
       }
     }
   }
+
+  const houses = await getAllHouses();
+  for (const house of houses){
+    const mainHtmlElement2 = document.getElementById('houses');
+    const newElement2 = document.createElement('div');
+
+    newElement2.innerHTML = `<h1>${house.name}</h1><button onclick="destacarCasa('${house.name}')" id="destacarCasa">Destacar</button>`;
+    mainHtmlElement2.appendChild(newElement2);
+  }
 }
 
 async function getAllWizards(){
   const response = await fetch(`${WIZARD_BASE_URL}/Wizards`);
+  const data = await response.json();
+  return data;
+}
+
+async function getAllHouses(){
+  const response = await fetch(`${WIZARD_BASE_URL}/Houses`);
   const data = await response.json();
   return data;
 }
