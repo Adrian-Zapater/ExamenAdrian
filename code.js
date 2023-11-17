@@ -8,14 +8,19 @@ window.onload = async () => {
     const mainHtmlElement = document.getElementById('wizards');
     const newElement = document.createElement('div');
 
-    const elixirWizard = await getElixirsByWizards(wizard.elixirs);
 
-    newElement.innerHTML = `
-    <h2>${wizard.firstName}</h2>
-    <p>${elixirWizard}</p>
-    `;
-    if (wizard.firstName !== null ){
+
+    newElement.innerHTML = `<h2>${wizard.firstName}</h2>`;
+
+    if (wizard.firstName !== null){
       mainHtmlElement.appendChild(newElement);
+
+      for (const elixir of wizard.elixirs){
+        const newElement2 = document.createElement('div');
+        newElement2.innerHTML =`<p>${elixir.name}</p>`
+        `<button onclick="addToCart({ id: 1, name: 'Samarreta'})" id="addCart">${elixir.name}</button>`
+        mainHtmlElement.appendChild(newElement2);
+      }
     }
   }
 }
@@ -24,10 +29,4 @@ async function getAllWizards(){
   const response = await fetch(`${WIZARD_BASE_URL}/Wizards`);
   const data = await response.json();
   return data;
-}
-
-async function getElixirsByWizards(elixirByWizard){
-  const response = await fetch(elixirByWizard);
-  const data = await response.json();
-  return data.name;
 }
