@@ -1,7 +1,27 @@
 #ingredients {
-    display: grid;
-    place-items: center;
-    height: 30vh;
-    position: absolute;
-    background-color: red;
+  background-color: red;
+  width:300px;
+  margin-left: 50%;
+  position: absolute;
+  place-items: center;
+  display: grid;
+}
+
+#wizards{
+  float: left;
+  width: 48%;
+  margin: 1%;
+  box-sizing: border-box;
+
+  padding: 20px;
+  border: 1px solid #ddd;
+}
+#casas{
+  float: left;
+  width: 48%;
+  margin: 1%;
+  box-sizing: border-box;
+
+  padding: 20px;
+  border: 1px solid #ddd;
 }
