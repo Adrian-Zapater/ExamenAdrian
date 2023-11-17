@@ -1,0 +1,7 @@
+#ingredients {
+    display: grid;
+    place-items: center;
+    height: 30vh;
+    position: absolute;
+    background-color: red;
+}

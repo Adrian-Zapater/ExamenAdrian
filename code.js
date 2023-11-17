@@ -8,8 +8,6 @@ window.onload = async () => {
     const mainHtmlElement = document.getElementById('wizards');
     const newElement = document.createElement('div');
 
-
-
     newElement.innerHTML = `<h2>${wizard.firstName}</h2>`;
 
     if (wizard.firstName !== null){
@@ -26,10 +24,27 @@ window.onload = async () => {
   }
 }
 
+
+
 async function getAllWizards(){
   const response = await fetch(`${WIZARD_BASE_URL}/Wizards`);
   const data = await response.json();
   return data;
 }
 
-async function
+async function getIngredientsBysElixirs(elixirId){
+  const response = await fetch(`${WIZARD_BASE_URL}/Elixirs/${elixirId}`);
+  const data = await response.json();
+  return data;
+}
+
+async function showIngredients (elixirId){
+  const ingredients = await getIngredientsBysElixirs(elixirId);
+
+  for (const ingredient of ingredients){
+    const sectionHtmlElement = document.getElementById('ingredients');
+    const newElement = document.createElement('div');
+    newElement.innerHTML = `<p>${ingredient.name}</p>`;
+    sectionHtmlElement.appendChild(newElement);
+  }
+}
