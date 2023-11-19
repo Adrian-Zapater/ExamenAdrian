@@ -8,7 +8,9 @@ window.onload = async () => {
     const mainHtmlElement = document.getElementById('wizards');
     const newElement = document.createElement('div');
 
-    newElement.innerHTML = `<h1>${wizard.firstName}</h1><button onclick="destacarPersonaje('${wizard.firstName}')" id="destacarPersonaje">Destacar</button>`;
+    newElement.innerHTML = `<h1>${wizard.firstName}</h1>
+    <button onclick="destacarPersonaje('${wizard.firstName}')" id="destacarPersonaje">Destacar</button>
+    <p></p>`;
 
     if (wizard.firstName !== null){
       mainHtmlElement.appendChild(newElement);
@@ -16,19 +18,20 @@ window.onload = async () => {
       for (const elixir of wizard.elixirs){
         const newElement2 = document.createElement('div');
         newElement2.innerHTML =`
-        <p>${elixir.name}</p>
-        <button onclick="showIngredients('${elixir.id}')" id="showIngredients">Ingredientes</button>`
+        <li class="elixir">${elixir.name} <button onclick="showIngredients('${elixir.id}')" id="showIngredients">Ingredientes</button></li>
+        `
         mainHtmlElement.appendChild(newElement2);
       }
     }
   }
 
   const houses = await getAllHouses();
+
   for (const house of houses){
     const mainHtmlElement2 = document.getElementById('houses');
     const newElement2 = document.createElement('div');
 
-    newElement2.innerHTML = `<h1>${house.name}</h1><button onclick="destacarCasa('${house.name}')" id="destacarCasa">Destacar</button>`;
+    newElement2.innerHTML = `<div class="escudos ${house.name}">${house.name}<button onclick="destacarCasa('${house.name}')" id="destacarCasa">Destacar</button></div>`;
     mainHtmlElement2.appendChild(newElement2);
   }
 }
@@ -52,6 +55,8 @@ async function getIngredientsBysElixirs(elixirId){
 }
 
 async function showIngredients (elixirId){
+  const sectionHtmlElement = document.getElementById('ingredients');
+  sectionHtmlElement.innerHTML = '';
   const ingredients = await getIngredientsBysElixirs(elixirId);
 
   for (const ingredient of ingredients){
@@ -60,4 +65,10 @@ async function showIngredients (elixirId){
     newElement.innerHTML = `<p>${ingredient.name}</p>`;
     sectionHtmlElement.appendChild(newElement);
   }
+  newElement.innerHTML = `<button class="botonIngredients" onclick="cerrarIngredientsl()">Cerrar</button>`
+  sectionHtmlElement.appendChild(newElement);
+}
+
+function cerrarIngredients() {
+  document.getElementById('ingredientes').style.display = 'none';
 }

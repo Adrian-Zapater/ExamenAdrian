@@ -1,10 +1,71 @@
-#ingredients {
-  background-color: red;
-  width:300px;
-  margin-left: 50%;
-  position: absolute;
-  place-items: center;
+@font-face {
+  font-family: 'Luminari';
+  src: url('C:/Users/adria/Desktop/informatica/3º Curso/1cuatri/DesarrolloWeb/Exemple/ExamenAdrian/MedievalSharp-Regular.ttf') format('truetype');
+}
+
+body {
+  background-image: url('https://images.ctfassets.net/usf1vwtuqyxm/71J6YPxNauhFABbjHpGluJ/631bd6980b0a430d5b476ef331abb2b5/release_1_hogwarts.png');
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'Luminari';
+}
+
+#logo{
+  width: 408px;
+  height: 140px;
+}
+
+.mainSection {
+  background-color: rgba(128, 128, 128, 0.6);
+}
+
+.sectionTitle {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.escudos {
+  border: 1px solid #000000;
+  width: 100%; /* Ajusta el ancho según tus necesidades */
+  height: 300px;
+}
+
+.house {
   display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+}
+
+.Gryffindor{
+  background-image: url('https://i.pinimg.com/originals/93/85/bf/9385bf3ca546d3c750363a78a68e0c70.jpg');
+  background-size: cover;
+}
+
+.Hufflepuff{
+  background-image: url('https://i.pinimg.com/736x/ce/66/f1/ce66f10b1dbf2bc58b8cabcc7fdf28be.jpg');
+  background-size: cover;
+}
+
+.Ravenclaw{
+  background-image: url('https://i.pinimg.com/564x/f9/ba/81/f9ba81d4edd5285b61ca212c1bfa8cb1.jpg');
+  background-size: cover;
+}
+
+.Slytherin{
+  background-image: url('https://i.pinimg.com/564x/c1/4f/36/c14f36dea82449f6ee5af5c2a6007c66.jpg');
+  background-size: cover;
+}
+
+.ingredients {
+  display: none;
+  background-color: rgba(128, 128, 128, 0.9);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  position: fixed;
+  display: grid;
+  border: 1px solid #ddd;
 }
 
 #wizards{
@@ -12,7 +73,6 @@
   width: 48%;
   margin: 1%;
   box-sizing: border-box;
-
   padding: 20px;
   border: 1px solid #ddd;
 }
@@ -21,7 +81,6 @@
   width: 48%;
   margin: 1%;
   box-sizing: border-box;
-
   padding: 20px;
   border: 1px solid #ddd;
 }
