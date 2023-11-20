@@ -79,7 +79,6 @@ async function showIngredients (elixirId){
     newElement.innerHTML = `<p>${ingredient.name}</p>`;
     sectionHtmlElement.appendChild(newElement);
   }
-  const newElement2 = document.createElement('div');
 }
 
 function cerrarIngredients() {
@@ -95,7 +94,6 @@ function cerrarHouse() {
 }
 
 async function destacarPersonaje(wizardId) {
-  cerrarIngredients();
   cerrarWizard();
   document.getElementById('wizard').style.display = 'block';
   const sectionHtmlElement = document.getElementById('wizard');
@@ -105,14 +103,12 @@ async function destacarPersonaje(wizardId) {
   const newElement = document.createElement('div');
   newElement.innerHTML = `
   <h1>${wizard.firstName}</h1>
-  <p>${wizard.lastName}</p>
-  <button class="botonWizard" onclick="cerrarWizard()">Cerrar</button>`;
+  <p>${wizard.lastName}</p>`;
 
   sectionHtmlElement.appendChild(newElement);
 }
 
 async function destacarCasa(houseId) {
-  cerrarIngredients();
   cerrarHouse();
   document.getElementById('house').style.display = 'block';
   const sectionHtmlElement = document.getElementById('house');
@@ -127,8 +123,7 @@ async function destacarCasa(houseId) {
   <p>Animal: ${house.animal}</p>
   <p>Element: ${house.element}</p>
   <p>Ghost: ${house.ghost}</p>
-  <p>Common Room: ${house.commonRoom}</p>
-  <button class="botonHouse" onclick="cerrarHouse()">Cerrar</button>`;
+  <p>Common Room: ${house.commonRoom}</p>`;
 
   sectionHtmlElement.appendChild(newElement);
 }
